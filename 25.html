@@ -1,60 +1,134 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f0f4f8;
-        }
-        .form-container {
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .form-control:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-        }
-        .btn-custom {
-            background-color: #0056b3;
-            color: white;
-            padding: 5px 10px;
-            border: none;
-            cursor: pointer;
-        }
-        .btn-custom:hover {
-            background-color: #004494;
-        }
-    </style>
+  <title>Đăng Ký Tài Khoản</title>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eff3f4;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+form {
+  width: 100%;
+  max-width: 400px;
+  background-color: #fff;
+  padding: 2em;
+  border-radius: 0.5em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.inputGroup {
+  margin-bottom: 1em; 
+  text-align: left;
+}
+
+label {
+  font-size: 1.1em;
+  color: #217093;
+  font-weight: bold;
+  margin-bottom: 0.3em;
+  display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.75em; 
+  background-color: #f0f8ff; 
+  border: none; /* Bỏ khung (border) */
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 0.65em; 
+  background-color: #4eb8dd;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1em;
+  transition: background-color 0.3s; 
+}
+
+button:hover {
+  background-color: #217093;
+}
+
+p {
+  margin-top: 1em;
+  font-size: 0.95em; 
+}
+
+a {
+  color: #4eb8dd;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+  </style>
 </head>
 <body>
-    <div class="form-container">
-        <form>
-            <div class="mb-3">
-                <label for="firstname" class="form-label">First name:</label>
-                <input type="text" name="firstname" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="lastname" class="form-label">Last name:</label>
-                <input type="text" name="lastname" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email:</label>
-                <input type="email" name="email" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password:</label>
-                <input type="password" name="password" class="form-control" required>
-            </div>
-            <input type="submit" value="Login!" class="btn btn-custom">
-        </form>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<form id="registerForm">
+  <h2>Đăng Ký Tài Khoản</h2>
+
+  <div class="inputGroup">
+    <label for="registerName">Họ và Tên</label>
+    <input type="text" id="registerName" placeholder="Nhập họ và tên của bạn" required>
+  </div>
+
+  <div class="inputGroup">
+    <label for="registerEmail">Email</label>
+    <input type="email" id="registerEmail" placeholder="Nhập email của bạn" required>
+  </div>
+
+  <div class="inputGroup">
+    <label for="registerPassword">Mật Khẩu</label>
+    <input type="password" id="registerPassword" placeholder="Nhập mật khẩu" required>
+  </div>
+
+  <div class="inputGroup">
+    <label for="confirmPassword">Xác Nhận Mật Khẩu</label>
+    <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu" required>
+  </div>
+
+  <button type="submit">Đăng Ký</button>
+</form>
+
+<script>
+  document.getElementById("registerForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const password = document.getElementById("registerPassword").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (password !== confirmPassword) {
+      alert("Mật khẩu và Xác nhận mật khẩu không khớp.");
+      return;
+    }
+
+    alert("Đăng ký thành công! Đang chuyển đến trang đăng nhập...");
+    window.location.href = "dangnhap.html";
+  });
+</script>
+
 </body>
 </html>
